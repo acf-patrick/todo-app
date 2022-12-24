@@ -28,6 +28,10 @@ function App() {
     }
   ]);
 
+  /* Indices of dragged items */
+  const dragItem = useRef<number>();
+  const dragOverItem = useRef<number>();
+
   const handleOnSubmit = (e:  Event) => {
     e.preventDefault();
 
@@ -39,11 +43,39 @@ function App() {
     form.input.value = "";
   };
 
+  const handleOnDragEnter = (index: number) => {
+    dragOverItem.current = index;
+  };
+
+  const handleOnDragStart = (index: number) => {
+    dragItem.current = index;
+  };
+
+  const handleOnDragEnd = () => {
+    if (dragItem.current == dragOverItem.current)
+      return;
+      
+    const list: Item[] = [];
+    for (let i = 0; i < items.length; ++i) {
+      if (i == dragItem.current)
+        continue;
+      if (i == dragOverItem.current)
+        list.push(items[dragItem.current!]);
+      list.push(items[i]);
+    }
+    setItems(list);
+  };
+
   return (
     <div className="App">
       <Header onSubmit={handleOnSubmit} />
       <ul className="items">
-        {items.map((item, i) => <li key={i} draggable>
+        {items.map((item, i) => <li 
+          key={i} 
+          onDragStart={() => handleOnDragStart(i)}
+          onDragEnter={() => handleOnDragEnter(i)}
+          onDragEnd={handleOnDragEnd}
+          draggable>
           <Item 
             content={item.content.substring(0, 60)} 
             checked={item.checked}
