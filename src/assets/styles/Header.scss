@@ -1,0 +1,45 @@
+h1 {
+  margin-top: 0;
+  padding: 0.5rem 0;
+  text-align: center;
+  color: cyan;
+}
+
+form {
+  p {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.4rem 0;
+  }
+
+  .submit {
+    display: flex;
+    justify-content: end;
+    margin-top: 0.5rem;
+
+    button {
+        $bg: rgb(0, 0, 187);
+        padding: 0.5rem 01rem;
+        border-radius: 0.3rem;
+        font-size: 1rem;
+        color: whitesmoke;
+        background-color: $bg;
+        border: none;
+        cursor: pointer;
+        transition: background 300ms;
+
+        &:hover {
+            background-color: lighten($color: $bg, $amount: 15%);
+        }
+
+        &:active {
+            background-color: darken($color: $bg, $amount: 10%);
+        }
+    }
+}
+}

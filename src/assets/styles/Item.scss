@@ -1,0 +1,42 @@
+$bg: rgb(18, 15, 22);
+
+.content {
+    font-size: 1.1rem;
+    margin-left: 0.6rem;
+    color: lighten($bg, 75%);
+}
+
+.grip {
+    color: lighten($bg, 30%);
+    cursor: grab;
+}
+
+$btn-color: lighten($bg, 50%);
+
+button {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.75rem;
+    box-shadow: none;
+    color: $btn-color;
+    cursor: pointer;
+    border-radius: 2px;
+    border: 1px solid $btn-color;
+    background-color: transparent;
+    transition: background-color 300ms;
+
+    &:hover {
+        background-color: rgba($color: white, $alpha: 0.2);
+    }
+
+    &:active {
+        background-color: rgba($color: black, $alpha: 0.2);
+    }
+}
+
+button:last-of-type {
+    margin-left: 0.25rem;
+}
+
+.checked {
+    text-decoration: line-through;
+}

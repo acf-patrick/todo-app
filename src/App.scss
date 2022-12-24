@@ -1,0 +1,36 @@
+.App {
+  min-height: 100vh;
+  max-width: 600px;
+  padding: 0 1rem;
+  margin: auto;
+}
+
+$bg: rgb(18, 15, 22);
+
+body {
+  background-color: $bg;
+}
+
+.items {
+  list-style: none;
+  overflow-y: auto;
+  max-height: 500px;
+  padding: 0;
+
+  li {
+    display: flex;
+    padding: 1rem 0.5rem;
+    padding-left: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.3rem;
+    border-radius: 0.25rem;
+    background-color: lighten($color: $bg, $amount: 5%);
+    transition: background-color 300ms;
+    border: 1px solid lighten($color: $bg, $amount: 50%);
+
+    &:hover {
+      background-color: lighten($color: $bg, $amount: 7%);
+    }
+  }
+}
